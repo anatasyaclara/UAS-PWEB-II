@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <script src="jquery-3.6.4.min.js"></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Home Laravel</title>
+
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
+        <style>
+            body {
+                background-color: #C8DBBE;
+                font-family: 'Nunito', sans-serif;
+                text-align: center;
+                color: #564337;
+                font-size: 17px;
+                margin: auto;
+                width: 60%;
+                padding: 250px;
+            }
+
+            .judul{
+              font-size: 25px;
+              font-weight: bold;
+            }
+            .navmenu a{
+              color: #564337 ;
+              font-size: 17px;
+              text-decoration: none;
+              text-transform: uppercase;
+              width: 80px;
+              -webkit-transition: all 0.2s ease-in-out;
+              transition: all 0.2s ease-in-out;
+            }
+
+            .navmenu a:hover{
+              color: #ABAE8D;
+            }
+          
+            .navmenu .dot{
+              width: 6px;
+              height: 6px;
+              background: #ABAE8D;
+              border-radius: 50%;
+              opacity: 0;
+              -webkit-transform: translate(30px);
+              transform: translate(30px);
+              -webkit-transition: all 0.2s ease-in-out;
+              transition: all 0.2s ease-in-out;
+            }
+
+            .navmenu a:nth-child(1):hover~.dot{
+              -webkit-transform: translate(260px);
+              transform: translate(260px);
+              -webkit-transition: all 0.2s ease-in-out;
+              transition: all 0.2s ease-in-out;
+              opacity: 1;
+            }
+
+           .navmenu a:nth-child(2):hover~.dot{
+              -webkit-transform: translate(350px);
+              transform: translate(350px);
+              -webkit-transition: all 0.2s ease-in-out;
+              transition: all 0.2s ease-in-out;
+              opacity: 1;
+            } 
+
+            .navmenu a:nth-child(3):hover~.dot{
+              -webkit-transform: translate (470px);
+              transform: translate(470px);
+              -webkit-transition: all 0.2s ease-in-out;
+              transition: all 0.2s ease-in-out;
+              opacity: 1;
+            } 
+        </style>
+    </head>
+    <body class="antialiased">
+      <div id = "clock" onload="currentTime()"></div>
+        <div class="judul">
+          SELAMAT DATANG DI LARAVEL SAYA
+        </div>
+      <div>Anatasya Clara Supriyanto</div>
+      <div class="nav>">
+      <nav class="navmenu">
+        <a href="profile">Profil</a>
+        <a href="portofolio">Portofolio</a>
+        <a href="hubungi_saya">Hubungi Saya</a>
+        <div class="dot"></div>
+      </nav>
+      </div>
+      <script>
+function currentTime() {
+  let date = new Date(); 
+  let hh = date.getHours();
+  let mm = date.getMinutes();
+  let ss = date.getSeconds();
+  let session = "AM";
+
+    
+  if(hh > 12){
+      session = "PM";
+   }
+
+   hh = (hh < 10) ? "0" + hh : hh;
+   mm = (mm < 10) ? "0" + mm : mm;
+   ss = (ss < 10) ? "0" + ss : ss;
+    
+   let time = hh + ":" + mm + ":" + ss + " " + session;
+
+  document.getElementById("clock").innerText = time; 
+  let t = setTimeout(function(){ currentTime() }, 1000); 
+
+}
+
+currentTime();
+      </script>
+    </body>
+</html>
